@@ -6,7 +6,7 @@
 - efficient implies linear time
 */
 
-var stock_prices_yesterday = [10, 7, 5, 8, 11, 9];
+var stock_prices_yesterday = [10, 8, 7, 6, 5];
 
 /*
 prices is an array with length > 1
@@ -15,9 +15,12 @@ function get_max_profit(prices) {
 	var max_diff = prices[1] - prices[0];
 	var min_price = Math.min(prices[0], prices[1]);
 	for (var i = 2; i < prices.length; i++) {
-		min_price = Math.min(prices[i], min_price);
-		curr_diff = prices[i] - min_price;
-		max_diff = Math.max(curr_diff, max_diff);
+		if (prices[i] < min_price) {
+			min_price = prices[i];
+		} else {
+			curr_diff = prices[i] - min_price;
+			max_diff = Math.max(curr_diff, max_diff);
+		}
 	}
 	return max_diff;
 }
