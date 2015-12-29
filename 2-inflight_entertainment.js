@@ -5,7 +5,7 @@ INFLIGHT ENTERTAINMENT
 - optimize for runtime over memory implies linear time
 */
 
-var test1 = [1,2,3,4];
+var test1 = [1,0,0,1];
 var test2 = [5,3,7,5];
 
 //O(n^2)
