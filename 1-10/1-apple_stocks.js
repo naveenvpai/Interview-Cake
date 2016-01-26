@@ -23,3 +23,4 @@ function get_max_profit(prices) {
 }
 
 document.getElementById('result').innerHTML =  get_max_profit(stock_prices_yesterday);
+
