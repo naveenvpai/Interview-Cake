@@ -6,24 +6,20 @@ PRODUCT OF ALL OTHER NUMBERS
 - can't use division: have to calculate each product individually with mulitplication
 - implies quadratic time
 
-- can use memoization to avoid repeated calculations
+- can use memoization to avoid repeated calculations: linear time
+
+- NOTE: (hash[i] || 1) == 1 when hash[i] is undefined or equal to 0
 */
 
 function get_all_other_products(input) {
-	if (input.length <= 1) {
-		return undefined;
-	}
+	if (input.length <= 1) return undefined;
 	var before_hash = {0:1};
 	var after_hash = {}; after_hash[input.length-1] = 1;
 	var j;
-	for(var i = 0; i < input.length; i++) {
+	for(var i = 1; i < input.length; i++) {
 		j = input.length-1-i;
-		if(i != 0) {
-			before_hash[i] = before_hash[i-1]*input[i-1];
-		}
-		if (j != input.length-1) {
-			after_hash[j] = after_hash[j+1]*input[j+1];
-		}
+		before_hash[i] = before_hash[i-1]*input[i-1];
+		after_hash[j] = after_hash[j+1]*input[j+1];
 	}
 	var result = []
 	for (var i = 0; i < input.length; i++) {
