@@ -10,7 +10,6 @@ PRODUCT OF ALL OTHER NUMBERS
 */
 
 function get_all_other_products(input) {
-	console.log(input);
 	if (input.length <= 1) {
 		return undefined;
 	}
@@ -26,8 +25,6 @@ function get_all_other_products(input) {
 			after_hash[j] = after_hash[j+1]*input[j+1];
 		}
 	}
-	console.log(before_hash);
-	console.log(after_hash);
 	var result = []
 	for (var i = 0; i < input.length; i++) {
 		result[i] = before_hash[i]*after_hash[i];
