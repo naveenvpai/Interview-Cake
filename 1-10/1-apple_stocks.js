@@ -8,10 +8,8 @@
 
 var stock_prices_yesterday = [10, 7, 5, 8, 11, 9];
 
-/*
-prices is an array with length > 1
-*/
 function get_max_profit(prices) {
+	if (prices.length <= 1) return undefined;
 	var max_diff = prices[1] - prices[0];
 	var min_price = Math.min(prices[0], prices[1]);
 	for (var i = 2; i < prices.length; i++) {
