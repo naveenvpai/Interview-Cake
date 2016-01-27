@@ -20,5 +20,6 @@ function get_max_profit(prices) {
 	return max_diff;
 }
 
-document.getElementById('result').innerHTML =  get_max_profit(stock_prices_yesterday);
-
+function display() {
+	document.getElementById('result').innerHTML =  get_max_profit(stock_prices_yesterday);
+}

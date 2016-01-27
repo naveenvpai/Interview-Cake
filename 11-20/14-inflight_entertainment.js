@@ -20,4 +20,6 @@ function get_two_movies1(movie_lengths, flight_length) {
 	return false;	
 }
 
-document.getElementById('result').innerHTML = get_two_movies1(test1);
+function display() {
+	document.getElementById('result').innerHTML = get_two_movies1(test1);
+}
