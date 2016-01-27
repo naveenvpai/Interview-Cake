@@ -13,21 +13,21 @@ PRODUCT OF ALL OTHER NUMBERS
 
 function get_all_other_products(input) {
 	if (input.length <= 1) return undefined;
-	var before_hash = {0:1};
-	var after_hash = {}; after_hash[input.length-1] = 1;
-	var j;
-	for(var i = 1; i < input.length; i++) {
-		j = input.length-1-i;
-		before_hash[i] = before_hash[i-1]*input[i-1];
-		after_hash[j] = after_hash[j+1]*input[j+1];
+	var result = [];
+	var prod = 1;
+	for (var i = 0; i < input.length-1; i++) {
+		prod *= input[i];
+		result[i+1] = prod;
 	}
-	var result = []
-	for (var i = 0; i < input.length; i++) {
-		result[i] = before_hash[i]*after_hash[i];
+	prod = 1;
+	result[0] = 1;
+	for (var i = input.length-1; i > 0; i--) {
+		prod *= input[i];
+		result[i-1] *= prod;
 	}
 	return result;
 }
 
 function display() {
-	document.getElementById('result').innerHTML = get_all_other_products([0,0,0,0,0]);
+	document.getElementById('result').innerHTML = gaop([1,1,0,1]);
 }
