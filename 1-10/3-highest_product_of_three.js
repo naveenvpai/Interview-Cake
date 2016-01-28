@@ -7,14 +7,18 @@ HIGHEST PRODUCT OF THREE
 
 function highest_prod_of_three(input) {
 	if (input.length < 3) return undefined;
-	sort(input);
-	return input[0]*input[1]*input[2];
+	sort_descending(input);
+	console.log(input);
+	int j = input.length-1;
+	return Math.max(input[0]*input[1]*input[2], input[j]*input[j-1]*input[0]);
 }
 
 function sort_descending(input) {
-	input[0] = 1;
+	input.sort(function(a,b) {
+		return b-a;
+	});
 }
 
 function display() {
-	document.getElementById('result').innerHTML = highest_prod_of_three(0,1,1);
+	document.getElementById('result').innerHTML = highest_prod_of_three([1,3,5,2123,35,2]);
 }
