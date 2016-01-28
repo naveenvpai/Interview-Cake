@@ -29,5 +29,5 @@ function get_all_other_products(input) {
 }
 
 function display() {
-	document.getElementById('result').innerHTML = gaop([1,1,0,1]);
+	document.getElementById('result').innerHTML = get_all_other_products([1,1,0,1]);
 }
